@@ -1,0 +1,14 @@
+C:\Users\kurebayashi\work\c#test\ConsoleApp2.1\ConsoleApp2.1\bin\Debug\net8.0\ConsoleApp2.1.exe
+C:\Users\kurebayashi\work\c#test\ConsoleApp2.1\ConsoleApp2.1\bin\Debug\net8.0\ConsoleApp2.1.deps.json
+C:\Users\kurebayashi\work\c#test\ConsoleApp2.1\ConsoleApp2.1\bin\Debug\net8.0\ConsoleApp2.1.runtimeconfig.json
+C:\Users\kurebayashi\work\c#test\ConsoleApp2.1\ConsoleApp2.1\bin\Debug\net8.0\ConsoleApp2.1.dll
+C:\Users\kurebayashi\work\c#test\ConsoleApp2.1\ConsoleApp2.1\bin\Debug\net8.0\ConsoleApp2.1.pdb
+C:\Users\kurebayashi\work\c#test\ConsoleApp2.1\ConsoleApp2.1\obj\Debug\net8.0\ConsoleApp2.1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kurebayashi\work\c#test\ConsoleApp2.1\ConsoleApp2.1\obj\Debug\net8.0\ConsoleApp2.1.AssemblyInfoInputs.cache
+C:\Users\kurebayashi\work\c#test\ConsoleApp2.1\ConsoleApp2.1\obj\Debug\net8.0\ConsoleApp2.1.AssemblyInfo.cs
+C:\Users\kurebayashi\work\c#test\ConsoleApp2.1\ConsoleApp2.1\obj\Debug\net8.0\ConsoleApp2.1.csproj.CoreCompileInputs.cache
+C:\Users\kurebayashi\work\c#test\ConsoleApp2.1\ConsoleApp2.1\obj\Debug\net8.0\ConsoleApp2.1.dll
+C:\Users\kurebayashi\work\c#test\ConsoleApp2.1\ConsoleApp2.1\obj\Debug\net8.0\refint\ConsoleApp2.1.dll
+C:\Users\kurebayashi\work\c#test\ConsoleApp2.1\ConsoleApp2.1\obj\Debug\net8.0\ConsoleApp2.1.pdb
+C:\Users\kurebayashi\work\c#test\ConsoleApp2.1\ConsoleApp2.1\obj\Debug\net8.0\ConsoleApp2.1.genruntimeconfig.cache
+C:\Users\kurebayashi\work\c#test\ConsoleApp2.1\ConsoleApp2.1\obj\Debug\net8.0\ref\ConsoleApp2.1.dll
