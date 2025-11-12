@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace ConsoleApp6
 {
@@ -7,9 +6,9 @@ namespace ConsoleApp6
     {
         static void Main(string[] args)
         {
-            //question1();
-            //question2();
-            //question3();
+            question1();
+            question2();
+            question3();
             question4();
         }
         static void question1()
@@ -83,15 +82,15 @@ namespace ConsoleApp6
             Console.WriteLine("");
         }
         static void question4()
-        {//エラー修正のみ
+        {
             Console.WriteLine("2.6.4.問題6-4のコンソール出力");
             static int Average(int[] array)
             {
-                Console.WriteLine("平均。");
                 int average = 0;
                 int sum = 0;
                 for(int i=0; i < array.Length; i++) {
                     sum = sum + array[i];
+                    Console.WriteLine(sum+":"+(array.Length));
                     average = sum / array.Length;
                 }
                 return average;
@@ -99,7 +98,7 @@ namespace ConsoleApp6
             static int Max(int[] array)
             {
                 Array.Sort(array);
-                int max = array[array.Length];
+                int max = array[array.Length-1];
                 return max;
             };
             static int Min(int[] array)
@@ -112,10 +111,9 @@ namespace ConsoleApp6
             Console.WriteLine("数値を入力して下さい。");
             try
             {
-                for(int i=1; i<7; i++) { 
+                for(int i=1; i<6; i++) { 
                     Console.WriteLine($"{i}回目:");
                     array[i-1] = int.Parse(Console.ReadLine());
-                    Console.WriteLine($"{array[i - 1]}に格納しました。");
                 }
                 int max = Max(array);
                 int min = Min(array);
