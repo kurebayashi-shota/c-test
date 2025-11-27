@@ -6,6 +6,7 @@
 
 - 2.8.6.問題 8-6 ConsoleApp8-question6
 - 2.8.9.問題 8-9 ConsoleApp8-question9
+- 4.6.1.問題 6-1 ConsoleApp10-question6
 
 ## 確認
 
