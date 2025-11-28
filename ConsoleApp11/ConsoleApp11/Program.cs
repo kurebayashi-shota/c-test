@@ -92,16 +92,19 @@ class Program
     }
     static void question5()
     {
-        Console.WriteLine("5.1.1.問題1-1のコンソール出力");
+        Console.WriteLine("5.4.1.問題4-1のコンソール出力");
         try
         {
             Console.WriteLine("ファイル名を入力して下さい");
             string fileName = Console.ReadLine();
             try
             { 
-            using (StreamReader sr = new StreamReader(fileName))
+                using (StreamReader sr = new StreamReader(fileName))
                 {
-                    //内容を行番号付きで表示する。
+                    while (!sr.EndOfStream)
+                    {
+                        Console.WriteLine(sr.ReadLine());
+                    }
                 }
             }
             catch { Console.WriteLine("例外が発生しました。"); }
