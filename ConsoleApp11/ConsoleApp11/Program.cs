@@ -101,10 +101,7 @@ class Program
             { 
                 using (StreamReader sr = new StreamReader(fileName))
                 {
-                    while (!sr.EndOfStream)
-                    {
-                        Console.WriteLine(sr.ReadLine());
-                    }
+                    //内容を行番号付きで表示する
                 }
             }
             catch { Console.WriteLine("例外が発生しました。"); }

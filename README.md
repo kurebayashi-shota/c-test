@@ -14,3 +14,7 @@
 ### 4.3.1.問題 3-1 ConsoleApp10-question3
 
 - 0 除算できる?
+
+### 6.4.1.問題 4-1 ConsoleApp12-question6
+
+- Dictionary 使ってない。
