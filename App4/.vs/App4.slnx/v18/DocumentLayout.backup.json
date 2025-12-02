@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\kurebayashi\\work\\c#test\\App4\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F8000773-4DE2-4D19-A0E9-F515C9754B19}|App4\\App4.csproj|c:\\users\\kurebayashi\\work\\c#test\\app4\\app4\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F8000773-4DE2-4D19-A0E9-F515C9754B19}|App4\\App4.csproj|solutionrelative:app4\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\kurebayashi\\work\\c#test\\App4\\App4\\Program.cs",
+              "RelativeDocumentMoniker": "App4\\Program.cs",
+              "ToolTip": "C:\\Users\\kurebayashi\\work\\c#test\\App4\\App4\\Program.cs",
+              "RelativeToolTip": "App4\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-02T00:54:23.668Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
