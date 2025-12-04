@@ -1,0 +1,14 @@
+C:\Users\kurebayashi\work\c#test\App4\App4\bin\Debug\net10.0\App4.exe
+C:\Users\kurebayashi\work\c#test\App4\App4\bin\Debug\net10.0\App4.deps.json
+C:\Users\kurebayashi\work\c#test\App4\App4\bin\Debug\net10.0\App4.runtimeconfig.json
+C:\Users\kurebayashi\work\c#test\App4\App4\bin\Debug\net10.0\App4.dll
+C:\Users\kurebayashi\work\c#test\App4\App4\bin\Debug\net10.0\App4.pdb
+C:\Users\kurebayashi\work\c#test\App4\App4\obj\Debug\net10.0\App4.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kurebayashi\work\c#test\App4\App4\obj\Debug\net10.0\App4.AssemblyInfoInputs.cache
+C:\Users\kurebayashi\work\c#test\App4\App4\obj\Debug\net10.0\App4.AssemblyInfo.cs
+C:\Users\kurebayashi\work\c#test\App4\App4\obj\Debug\net10.0\App4.csproj.CoreCompileInputs.cache
+C:\Users\kurebayashi\work\c#test\App4\App4\obj\Debug\net10.0\App4.dll
+C:\Users\kurebayashi\work\c#test\App4\App4\obj\Debug\net10.0\refint\App4.dll
+C:\Users\kurebayashi\work\c#test\App4\App4\obj\Debug\net10.0\App4.pdb
+C:\Users\kurebayashi\work\c#test\App4\App4\obj\Debug\net10.0\App4.genruntimeconfig.cache
+C:\Users\kurebayashi\work\c#test\App4\App4\obj\Debug\net10.0\ref\App4.dll

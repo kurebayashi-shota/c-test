@@ -53,16 +53,12 @@ class Program
         StreamReader sr = new StreamReader(@"c:\c#test\words.csv");
         while (!sr.EndOfStream)
         {
-            // CSVファイルの一行を読み込む
             string line = sr.ReadLine();
-            // 読み込んだ一行をカンマ毎に分けて配列に格納する
             string[] values = line.Split(',');
 
-            // 配列からリストに格納する
             List<string> lists = new List<string>();
             lists.AddRange(values);
 
-            // コンソールに出力する
             foreach (string list in lists)
             {
                 System.Console.Write("{0} ", list);

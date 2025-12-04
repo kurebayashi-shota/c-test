@@ -22,12 +22,19 @@ class Program
         int mode = 1;
         Console.WriteLine("8.3.問題(商品管理アプリ)");
         List<Product> productList = new List<Product>();
+        static void selectMode(int mode) {
+            try { mode = int.Parse(Console.ReadLine()); }
+            catch
+            {
+                Console.WriteLine("Enterキーを押した?もう一度入力して下さい。");
+                selectMode(mode);
+            }
+        }
         while (end)
         {
             Console.WriteLine("行う操作を選択してください");
             Console.WriteLine("1:登録 2:一覧表示(2,3両方) 3:高い順にソート 4:カテゴリー毎の表示 5:終了");
-            try { mode = int.Parse(Console.ReadLine()); }
-            catch { Console.WriteLine("Enterキーを押した?めんどくさいので登録モードに入ります。"); }
+            selectMode(mode);
 
             switch (mode)
             {
@@ -56,23 +63,38 @@ class Program
     {
         Console.WriteLine("一覧表示");
         Console.WriteLine("登録された商品一覧です。");
-    }
-    static void Sort(List<Product> productList)
-    {
-        Console.WriteLine("ソート");
-    }
-    static void Category(List<Product> productList)
-    {
-        Console.WriteLine("カテゴリー");
-        var selectResults = productList.Where(x => x.Price >= 1000);
-        var groupResults = selectResults.GroupBy(x => x.Category);
+        var groupResults = productList.GroupBy(x => x.Category);
         foreach (var group in groupResults)
         {
             int count = group.Count();
             var oderResult = group.OrderByDescending(x => x.Price);
             Console.WriteLine(group.Key);
-            Console.WriteLine($"商品数:{count}");
             foreach (var item in oderResult)
+            {
+                Console.WriteLine($"{item.Name}:{item.Price}");
+            }
+            Console.WriteLine();
+        }
+    }
+    static void Sort(List<Product> productList)
+    {
+        Console.WriteLine("ソート");
+        var oderResult = productList.OrderByDescending(x => x.Price);
+        foreach (var item in oderResult)
+        {
+            Console.WriteLine($"{item.Name}:{item.Price}");
+        }
+        Console.WriteLine();
+    }
+    static void Category(List<Product> productList)
+    {
+        Console.WriteLine("カテゴリー");
+        var groupResults = productList.GroupBy(x => x.Category);
+        foreach (var group in groupResults)
+        {
+            int count = group.Count();
+            Console.WriteLine(group.Key);
+            foreach (var item in group)
             {
                 Console.WriteLine($"{item.Name}:{item.Price}");
             }

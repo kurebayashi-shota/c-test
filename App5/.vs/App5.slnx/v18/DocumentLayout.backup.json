@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\kurebayashi\\work\\c#test\\App5\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B418A5CC-0024-47FB-9CB2-4FD198CC5B04}|App5\\App5.csproj|c:\\users\\kurebayashi\\work\\c#test\\app5\\app5\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B418A5CC-0024-47FB-9CB2-4FD198CC5B04}|App5\\App5.csproj|solutionrelative:app5\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2EBD31CE-95A8-330C-2D8C-F64A0CB36C75}|App5\\App5.csproj|c:\\users\\kurebayashi\\work\\c#test\\app5\\app5\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2EBD31CE-95A8-330C-2D8C-F64A0CB36C75}|App5\\App5.csproj|solutionrelative:app5\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -24,7 +24,7 @@
               "RelativeDocumentMoniker": "App5\\Program.cs",
               "ToolTip": "C:\\Users\\kurebayashi\\work\\c#test\\App5\\App5\\Program.cs",
               "RelativeToolTip": "App5\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-02T01:59:19.261Z",
               "EditorCaption": ""
