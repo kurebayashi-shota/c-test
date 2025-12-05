@@ -22,70 +22,110 @@ class Program
     static void Main()
     {
         string path = "data/logs";
-        string fileName = "VendingData.csv";
-        string data = Path.Combine(path, fileName);
+        string salesData = "SalesData.csv";
+        string itemData = "ItemData.csv";
+        string salesPath = Path.Combine(path, salesData);
+        string itemPath = Path.Combine(path, itemData);
         bool end = true;
-        int mode = 1;
         int total = 0;
+
         Console.WriteLine("8.5.問題5(自販機アプリ)");
-        LoadData(path, data);
-        static void selectMode(int mode)
+
+        int sales = LoadSales(path, salesPath);
+        List<Item> list = LoadItems(path, itemPath);
+
+        foreach (var item in list)
         {
-            try { mode = int.Parse(Console.ReadLine()); }
+            Console.WriteLine($"番号:{item.Id}・名前:{item.Name}・価格:{item.Price}円・在庫:{item.Count}本");
+        }
+        static int selectMode()
+        {
+            try { return int.Parse(Console.ReadLine()); }
             catch
             {
-                Console.WriteLine("Enterキーを押した?もう一度入力して下さい。");
-                selectMode(mode);
+                Console.WriteLine("数字以外が入力されました。再入力してください");
+                return selectMode();
             }
         }
         while (end)
         {
             Console.WriteLine("行う操作を選択してください");
+            if (total > 0) Console.WriteLine($"投入合計金額:{total}円");
+            Console.WriteLine($"売上:{sales}円");//消す?
             Console.WriteLine("1:お金を入れる 2:購入する 3:返金 4:終了");
-            selectMode(mode);
+            int mode = selectMode();
 
             switch (mode)
             {
                 case 0: Administrator(); break;
-                case 1: Payment(total); break;
-                case 2: Buy(total); break;
-                case 3: Refund(total); break;
-                case 4: end = false; WriteData(path,data); break;
+                case 1: total += Payment(); break;
+                case 2: total -= Buy(total, list); break;
+                case 3: Refund(total); total = 0; break;
+                case 4: end = false; WriteData(path, salesPath, itemPath, sales); break;
                 default: Console.WriteLine("入力が不正です。"); break;
             }
             Console.WriteLine();
         }
     }
-    static void Payment(int total)
+    static int Payment()
     {
         Console.WriteLine("お金を投入してください。10 / 50 / 100 / 500 / 1000 円のみ受付");
-        int payment = 0;
 
-        try{payment = int.Parse(Console.ReadLine());}
-        catch{ Console.WriteLine("数字以外が入力されました。"); }
-
-        switch (payment)
+        try
         {
-            case 10: total += 10; break;
-            case 50: total += 50; break;
-            case 100: total += 100; break;
-            case 500: total += 500; break;
-            case 1000: total += 1000; break;
-                default : Console.WriteLine("不正な金種なので拒否します"); break;
+            int payment = int.Parse(Console.ReadLine());
+            switch (payment)
+            {
+                case 10: return 10;
+                case 50: return 50;
+                case 100: return 100;
+                case 500: return 500;
+                case 1000: return 1000;
+                default:
+                    Console.WriteLine("不正な金種なので拒否します。再入力してください");
+                    return Payment();
+            }
+        }
+        catch
+        {
+            Console.WriteLine("数字以外が入力されました。再入力してください");
+            return Payment();
         }
     }
-    static void Buy(int total)
+    static int Buy(int total, List<Item> list)
     {
-        Console.WriteLine("");
-        //購入する（商品番号を指定）
+        Dictionary<int, int> itemDic = new Dictionary<int, int>();
+        Console.WriteLine("購入する商品のIDを入力してください");
+        Console.WriteLine("購入を止める場合は[99]を入力してください");
+        int price = 0;
+        foreach (Item item in list)
+        {
+            Console.Write($"ID{item.Id}:{item.Name}");
+            itemDic.Add(item.Id, item.Price);
+        }
+        Console.WriteLine();
+        int input = int.Parse(Console.ReadLine());
+        if (input == 99) { Console.WriteLine("購入を止めました。"); return total; }
+        if (itemDic.ContainsKey(input))
+        {
+            price = itemDic[input];
+        }
+        else
+        {
+            Console.WriteLine("その商品はありません");
+        }
+        if (price < total)
+        {
+            return price;
+        }
+        else { Console.WriteLine("投入金額が不足しています。"); return Buy(price, list); }
         //購入条件：在庫が 1 以上、投入金額が価格以上、釣銭が不足していないこと。
         //購入成功時：在庫を減らし、売上を加算し、必要に応じておつりを払い出す。
     }
     static void Refund(int total)
     {
-        Console.WriteLine("");
-        //返金（投入金を払い戻す）
-        //返金時：投入金額をそのまま返す。
+        Console.WriteLine("投入金を払い戻します。");
+        Console.WriteLine($"{total}円返却しました。");
     }
     static void Administrator()
     {
@@ -97,22 +137,28 @@ class Program
         }
         else {Main();}
     }
-    static void LoadData(string path, string data)
+    static int LoadSales(string path, string salesPath)
     {
-        List<Item> lists = new List<Item>();
-        StreamReader sr = new StreamReader(path);
-        while (!sr.EndOfStream)
+        using (StreamReader sr = new StreamReader(salesPath))
         {
-            string line = sr.ReadLine();
-            string[] values = line.Split(',');
-            int sales = int.Parse(values[0]);
-            //↓引数確認
-            //lists.Add(new Item(values[0], int.Parse(values[1])));
-
+            return int.Parse(sr.ReadLine());
         }
-        //起動時に商品一覧（番号・名前・価格・在庫）を表示する。
     }
-    static void WriteData(string path, string data)
+    static List<Item> LoadItems(string path, string itemPath)
+    {
+        var list = new List<Item>();
+        using (StreamReader sr = new StreamReader(itemPath))
+        {
+            while (!sr.EndOfStream)
+            {
+                string line = sr.ReadLine();
+                string[] values = line.Split(',');
+                list.Add(new Item(int.Parse(values[0]), values[1], int.Parse(values[2]), int.Parse(values[3])));
+            }
+        }
+        return list;
+    }
+    static void WriteData(string path, string salesPath, string itemPath, int sales)
     {
         try
         {
@@ -127,29 +173,32 @@ class Program
         }
         try
         {
-            if (!File.Exists(data))
+            if (!File.Exists(salesPath))
             {
-                using (FileStream fs = File.Create($"{data}")) ;
+                using (FileStream fs = File.Create($"{salesPath}"));
+                using (FileStream fs = File.Create($"{itemPath}")) ;
             }
         }
         catch (Exception e)
         {
             Console.WriteLine("ファイル作成に失敗しました。", e.ToString());
         }
-        try
-        {
-            using (StreamWriter sw = new StreamWriter(data, append: true))
+        //try
+        //{
+            using (StreamWriter sw = new StreamWriter(salesPath, append: true))
             {
-                DateTime dt = DateTime.Now;
-                string date = dt.ToString("yyyy - MM - dd");
-                sw.WriteLine($"{date}");
+                sw.WriteLine(sales);
+            }
+            using (StreamWriter sw = new StreamWriter(itemPath, append:true))
+            {
+                //sw.WriteLine($"{date}");
             }
             Console.WriteLine("書き込みが完了しました");
-        }
-        catch
-        {
-            Console.WriteLine("書き込みに失敗しました");
-        }
+        //}
+        //catch
+        //{
+        //    Console.WriteLine("書き込みに失敗しました");
+        //}
 
     }
 }
