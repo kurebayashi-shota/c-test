@@ -5,6 +5,30 @@
     {
       "AbsoluteMoniker": "D:0:0:{2EBD31CE-95A8-330C-2D8C-F64A0CB36C75}|App5\\App5.csproj|c:\\users\\kurebayashi\\work\\c#test\\app5\\app5\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2EBD31CE-95A8-330C-2D8C-F64A0CB36C75}|App5\\App5.csproj|solutionrelative:app5\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2EBD31CE-95A8-330C-2D8C-F64A0CB36C75}|App5\\App5.csproj|c:\\users\\kurebayashi\\work\\c#test\\app5\\app5\\coincase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2EBD31CE-95A8-330C-2D8C-F64A0CB36C75}|App5\\App5.csproj|solutionrelative:app5\\coincase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2EBD31CE-95A8-330C-2D8C-F64A0CB36C75}|App5\\App5.csproj|c:\\users\\kurebayashi\\work\\c#test\\app5\\app5\\program.loadsales.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2EBD31CE-95A8-330C-2D8C-F64A0CB36C75}|App5\\App5.csproj|solutionrelative:app5\\program.loadsales.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2EBD31CE-95A8-330C-2D8C-F64A0CB36C75}|App5\\App5.csproj|c:\\users\\kurebayashi\\work\\c#test\\app5\\app5\\program.administrator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2EBD31CE-95A8-330C-2D8C-F64A0CB36C75}|App5\\App5.csproj|solutionrelative:app5\\program.administrator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2EBD31CE-95A8-330C-2D8C-F64A0CB36C75}|App5\\App5.csproj|c:\\users\\kurebayashi\\work\\c#test\\app5\\app5\\program.buy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2EBD31CE-95A8-330C-2D8C-F64A0CB36C75}|App5\\App5.csproj|solutionrelative:app5\\program.buy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2EBD31CE-95A8-330C-2D8C-F64A0CB36C75}|App5\\App5.csproj|c:\\users\\kurebayashi\\work\\c#test\\app5\\app5\\program.payment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2EBD31CE-95A8-330C-2D8C-F64A0CB36C75}|App5\\App5.csproj|solutionrelative:app5\\program.payment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2EBD31CE-95A8-330C-2D8C-F64A0CB36C75}|App5\\App5.csproj|c:\\users\\kurebayashi\\work\\c#test\\app5\\app5\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2EBD31CE-95A8-330C-2D8C-F64A0CB36C75}|App5\\App5.csproj|solutionrelative:app5\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,8 +38,60 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 4,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.LoadSales.cs",
+              "DocumentMoniker": "C:\\Users\\kurebayashi\\work\\c#test\\App5\\App5\\Program.LoadSales.cs",
+              "RelativeDocumentMoniker": "App5\\Program.LoadSales.cs",
+              "ToolTip": "C:\\Users\\kurebayashi\\work\\c#test\\App5\\App5\\Program.LoadSales.cs",
+              "RelativeToolTip": "App5\\Program.LoadSales.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-09T04:47:24.527Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.Buy.cs",
+              "DocumentMoniker": "C:\\Users\\kurebayashi\\work\\c#test\\App5\\App5\\Program.Buy.cs",
+              "RelativeDocumentMoniker": "App5\\Program.Buy.cs",
+              "ToolTip": "C:\\Users\\kurebayashi\\work\\c#test\\App5\\App5\\Program.Buy.cs",
+              "RelativeToolTip": "App5\\Program.Buy.cs",
+              "ViewState": "AgIAAEYAAAAAAAAAAAAAwA0AAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-09T04:47:15.937Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.Administrator.cs",
+              "DocumentMoniker": "C:\\Users\\kurebayashi\\work\\c#test\\App5\\App5\\Program.Administrator.cs",
+              "RelativeDocumentMoniker": "App5\\Program.Administrator.cs",
+              "ToolTip": "C:\\Users\\kurebayashi\\work\\c#test\\App5\\App5\\Program.Administrator.cs",
+              "RelativeToolTip": "App5\\Program.Administrator.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAADwvzoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-09T04:36:46.866Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CoinCase.cs",
+              "DocumentMoniker": "C:\\Users\\kurebayashi\\work\\c#test\\App5\\App5\\CoinCase.cs",
+              "RelativeDocumentMoniker": "App5\\CoinCase.cs",
+              "ToolTip": "C:\\Users\\kurebayashi\\work\\c#test\\App5\\App5\\CoinCase.cs",
+              "RelativeToolTip": "App5\\CoinCase.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-09T04:14:46.521Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -24,10 +100,35 @@
               "RelativeDocumentMoniker": "App5\\Program.cs",
               "ToolTip": "C:\\Users\\kurebayashi\\work\\c#test\\App5\\App5\\Program.cs",
               "RelativeToolTip": "App5\\Program.cs",
-              "ViewState": "AgIAAF0AAAAAAAAAAAAowG8AAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAABYAAAAAAAAAAAAAwCwAAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-02T01:59:19.261Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Program.Payment.cs",
+              "DocumentMoniker": "C:\\Users\\kurebayashi\\work\\c#test\\App5\\App5\\Program.Payment.cs",
+              "RelativeDocumentMoniker": "App5\\Program.Payment.cs",
+              "ToolTip": "C:\\Users\\kurebayashi\\work\\c#test\\App5\\App5\\Program.Payment.cs",
+              "RelativeToolTip": "App5\\Program.Payment.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABAAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-09T04:47:36.183Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Item.cs",
+              "DocumentMoniker": "C:\\Users\\kurebayashi\\work\\c#test\\App5\\App5\\Item.cs",
+              "RelativeDocumentMoniker": "App5\\Item.cs",
+              "ToolTip": "C:\\Users\\kurebayashi\\work\\c#test\\App5\\App5\\Item.cs",
+              "RelativeToolTip": "App5\\Item.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-09T03:55:48.934Z"
             }
           ]
         }
