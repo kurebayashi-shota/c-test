@@ -31,15 +31,6 @@ public partial class Program
             sales = LoadSales(salesPath);
             initialized = true;
         }
-        foreach (var coin in coinCase)
-        {
-            Console.WriteLine($"{coin.pType},{coin.pCount}");
-        }
-
-        foreach (var item in list)
-        {
-            Console.WriteLine($"番号:{item.Id}・名前:{item.Name}・価格:{item.Price}円・在庫:{item.Count}本");
-        }
         static int selectMode()
         {
             try { return int.Parse(Console.ReadLine()); }
@@ -64,7 +55,7 @@ public partial class Program
                         total -= buyResult;
                         sales += buyResult; break;
                 case 3: Refund(total); total = 0; break;
-                case 4: end = false; WriteData(path, salesPath, itemPath, changePath, sales, list, coinCase); break;
+                case 4: WriteData(path, salesPath, itemPath, changePath, sales, list, coinCase); end = false; break;
                 default: Console.WriteLine("入力が不正です。"); break;
             }
             Console.WriteLine();

@@ -28,7 +28,17 @@ public partial class Program
             countDic.Add(item.Id, item.Count);
         }
         Console.WriteLine();
-        int input = int.Parse(Console.ReadLine());
+        int input =0;
+        try
+        {
+            input = int.Parse(Console.ReadLine());
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("エラー。処理を戻します。");
+            Buy(total,list,coinCase);
+        }
+
         if (input == 99) { Console.WriteLine("購入を止めました。"); return Buy(price, list, coinCase); }
 
         if (priceDic.ContainsKey(input) && countDic[input]>0)

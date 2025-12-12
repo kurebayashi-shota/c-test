@@ -1,11 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Net;
 using System.Text;
 using System.Xml.Linq;
 using static System.Net.Mime.MediaTypeNames;
 namespace ConsoleApp11;
 
-class Program
+public partial class Program
 {
     static void Main(string[] args)
     {
@@ -13,22 +15,25 @@ class Program
         string fileName = "today.txt";
         string combine = Path.Combine(path, fileName);
         string usersPath = $"{path}/users.csv";
+        string utf8Path = $"{path}/utf8.txt";
+        string addressPath = $"{path}/address.csv";
+        string appPath = $"{path}/app.log.csv";
 
-        question1();
-        question2();
-        question3();
-        question4();
-        question5();
-        question6(path, fileName, combine);
-        question7(path, fileName,combine);
-        question8(path);
-        question9(usersPath);
-        question10(usersPath);
-        question11(usersPath);
+        //question1();
+        //question2();
+        //question3();
+        //question4();
+        //question5();
+        //question6(path, fileName, combine);
+        //question7(path, fileName, combine);
+        //question8(path);
+        //question9(usersPath);
+        //question10(usersPath);
+        //question11(usersPath);
         question12();
-        question13();
-        question14();
-        question15();
+        //question13(utf8Path);
+        //question14(path,appPath);
+        //question15(addressPath,path);
     }
 
     class User
@@ -130,15 +135,19 @@ class Program
             string fileName = Console.ReadLine();
             try
             { 
-                using (StreamReader sr = new StreamReader(fileName))
+                using (StreamReader sr = new StreamReader($@"{fileName}"))
                 {
-                    if (File.Exists(fileName))
+                    if (File.Exists($@"{fileName}"))
                     {
-                        Console.WriteLine("存在しません");
+                        string line;
+                        for (int i=1; (line = sr.ReadLine()) != null;i++)
+                        {
+                            Console.WriteLine($"{i}:{line}");
+                        }
                     }
                     else
                     {
-                        //内容を行番号付きで表示する。
+                        Console.WriteLine("存在しません");
                     }
                 }
             }
@@ -234,25 +243,29 @@ class Program
     static void question9(string usersPath)
     {
         Console.WriteLine("5.7.1.問題7-1のコンソール出力");
-        //users.csv を1行ずつ読み込み、各行を カンマ（,）で Split して、Name と Age を表示する。
         StreamReader sr = new StreamReader(usersPath);
         while (!sr.EndOfStream)
         {
-            string line = sr.ReadLine();
-            string[] values = line.Split(',');
-
-            List<string> lists = new List<string>();
-            lists.AddRange(values);
-
-            foreach (string list in lists)
+            try
             {
-                System.Console.Write("{0} ", list);
-            }
-            System.Console.WriteLine();
-        }
-        //例：Taro,20 → Name = Taro, Age = 20
-        //想定外の列数の場合はスキップし、警告を出す。
+                string line = sr.ReadLine();
+                string[] values = line.Split(',');
 
+                List<string> lists = new List<string>();
+                lists.AddRange($"Name={values[0]},Age={values[1]}");
+
+                foreach (string list in lists)
+                {
+                    System.Console.Write("{0} ", list);
+                }
+                System.Console.WriteLine();
+            }
+            catch (IndexOutOfRangeException)
+            {
+                Console.WriteLine("想定外の列数の場合なのでスキップします");
+                continue;
+            }
+        }
         Console.WriteLine();
     }
     static void question10(string usersPath)
@@ -319,47 +332,142 @@ class Program
     }
     static void question12()
     {
-        Console.WriteLine("5.9.1.問題7-1のコンソール出力");
-        //List<User> を受け取り、ヘッダ行 と 各行の整形表示 を行うメソッド PrintUsersTable(List<User> users) を作成する。
-        //列幅を揃えて見やすく表示する（例：Name は左寄せ、Age は右寄せ）。
+        Console.WriteLine("5.9.1.問題9-1のコンソール出力");
+        string[] userName = ["taro", "hanako", "shota", "ryota"];
+        List<User> users = new List<User>();
+        for (int i = 0; i < userName.Length; i++)
+        {
+            users.Add(new User(userName[i], 10+i));
+        }
+
+        PrintUsersTable(users);
+
+        static void PrintUsersTable(List<User> users)
+        {
+            string name = "Name";
+            string age = "Age";
+            Console.WriteLine($"{name,-6}{age,6}");
+            foreach (var user in users)
+            {
+                Console.WriteLine($"{user.Name,-6}{user.Age,6}");
+            }
+        }
 
         Console.WriteLine();
     }
-    static void question13()
+    static void question13(string utf8Path)
     {
         Console.WriteLine("5.10.1.問題10-1のコンソール出力");
-        //日本語を含む行を UTF-8 で utf8.txt に書き込み、同じく UTF-8 で読み込んで表示する。
-        //書き込み時・読み込み時に new StreamWriter(path, append: false, Encoding.UTF8) / new StreamReader(path, Encoding.UTF8) を指定する。
-        //文字化けしないことを確認する。
-
+        using (StreamWriter sw = new StreamWriter(utf8Path, append: true, Encoding.UTF8))
+        {
+            sw.WriteLine($"日本語を含む行desu");
+        }
+        using (StreamReader sr = new StreamReader(utf8Path, Encoding.UTF8))
+        {
+            Console.WriteLine($"{sr.ReadLine()}が文字化けしないことを確認");
+        }
         Console.WriteLine();
     }
-    static void question14()
+    static void question14(string path, string appPath)
     {
         Console.WriteLine("5.11.1.問題11-1のコンソール出力");
-        //メソッド Log(string message) を用意し、logs/app.log に 日付時刻＋メッセージ を 1 行追記する。
-        //例：2025 - 09 - 03T10: 15:00 ユーザー登録成功(Taro)
-        //アプリ起動時に「起動しました」、終了前に「終了します」を記録する。
-        //例外発生時は catch で Log("ERROR: " + 例外メッセージ) を残す。
+        Console.WriteLine("起動しました");
+        DateTime dt = DateTime.Now;
+        string result = dt.ToString("yyyy-MM-dd HH:mm:ss");
+        try
+        {
+            if (!File.Exists(appPath))
+            {
+                using (FileStream fs = File.Create(appPath)) ;
+            }
+            else
+            {
+                using (StreamWriter sw = new StreamWriter(appPath, append:true))
+                {
+                    sw.WriteLine("起動しました");
+                    sw.WriteLine($"{result} ユーザー登録成功(Taro)");
+                    sw.WriteLine("終了します");
+                }
+            }
+        }
+        catch (Exception e)
+        {
+            Log("ERROR: " + e.Message, appPath);
+        }
+        static void Log(string message, string appPath)
+        {
+            using (StreamWriter sw = new StreamWriter(appPath, append: true))
+            {
+                sw.WriteLine(message);
+            }
+        }
+        Console.WriteLine("終了します");
 
         Console.WriteLine();
     }
-    static void question15()
+    static void question15(string addressPath ,string path)
     {
         Console.WriteLine("5.12.1.問題11-1のコンソール出力");
-        //データ構造：Person クラス（Name, Phone, Email）。
-        //データファイル：address.csv（ヘッダ無し、1 行 = 1 人、カンマ区切り）。
-        //メニューを表示する：
-        //一覧表示
-        //追加
-        //検索（名前の部分一致）
-        //削除（完全一致）
-        //終了
-        //起動時：address.csv を読み込み List<Person> に格納。無ければ新規作成。
-        //終了時：List<Person> を 全件 address.csv に上書き保存。
         //入力値の妥当性チェック（空文字やカンマを含む場合の扱いなど）を入れる。
-        //例外発生時はメッセージを表示し、アプリが落ちないようにする。
+        try
+        {
+            Console.WriteLine("アドレス帳アプリが起動しました。");
+            List<Person> persons = new List<Person>();
+            bool end = true;
+            try
+            {
+                if (!File.Exists(addressPath))
+                {
+                    using (FileStream fs = File.Create(addressPath)) ;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("ファイル作成に失敗しました。", e.ToString());
+            }
+            using (StreamReader sr = new StreamReader(addressPath, Encoding.UTF8))
+            {
+                while (!sr.EndOfStream)
+                {
+                    string line = sr.ReadLine();
+                    string[] values = line.Split(',');
 
+                    persons.Add(new Person(values[0], long.Parse(values[1]), values[2]));
+                }
+            }
+            static int selectMode(string addressPath)
+            {
+                try { return int.Parse(Console.ReadLine()); }
+                catch
+                {
+                    Console.WriteLine("数字以外が入力されました。再入力してください");
+                    return selectMode(addressPath);
+                }
+            }
+            while (end)
+            {
+                Console.WriteLine("行う操作を選択してください");
+                Console.WriteLine("1:一覧表示 2:追加 3:検索（名前の部分一致）4:削除（完全一致）5:終了");
+                int mode = selectMode(addressPath);
+
+                switch (mode)
+                {
+                    case 1: Show(persons); break;
+                    case 2: Add(persons); break;
+                    case 3: Find(persons); break;
+                    case 4: Delete(persons); break;
+                    case 5: end = false; End(addressPath, persons,path); break;
+                    default: Console.WriteLine("入力が不正です。"); break;
+                }
+                Console.WriteLine();
+            }
+        }
+        catch
+        {
+            Console.WriteLine("例外が発生しましたがアプリが落ちないようにしています。");
+            Console.WriteLine("アプリを再起動します。");
+            question15(addressPath,path);
+        }
         Console.WriteLine();
     }
 }

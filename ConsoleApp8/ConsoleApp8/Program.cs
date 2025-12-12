@@ -9,6 +9,7 @@ class Program
         question3();
         question4();
         question5();
+        question6();
         question7();
         question8();
         question9();
@@ -82,8 +83,13 @@ class Program
         {
             Console.WriteLine("ボールで遊ぶ");
         }
+        public void Run()
+        {
+            Console.WriteLine("トコトコ");
+        }
+
     }
-class Cat : Animal, IPlayable
+    class Cat : Animal, IPlayable
     {
         public override string Species { get; }
         public Cat(string name, int age) : base(name, age)
@@ -199,6 +205,47 @@ class Cat : Animal, IPlayable
         Console.WriteLine(cat.ShowKind());
         Console.WriteLine();
     }
+    static void question6()
+    {
+        Console.WriteLine("2.8.6.問題8-6のコンソール出力");
+        Animal animal = new Horse("トム", 2);
+
+        //明示的キャストで Run() を呼ぶ。
+        Horse a = (Horse)animal;
+        try{ a.Run(); }
+        catch
+        {
+            //（失敗時の挙動）をコメントでまとめる。
+            Console.WriteLine("明示的キャストで失敗しました。");
+        }
+
+        //as 演算子（a as Horse）と null チェックで Run() を呼ぶ。
+        animal = a as Horse;
+        if (animal == null)
+        {
+            //（失敗時の挙動）をコメントでまとめる。
+            Console.WriteLine("as 演算子で失敗しました。");
+        }
+        else
+        {
+            a.Run();
+        }
+
+        //パターンマッチング（if (a is Horse d) ）で Run() を呼ぶ。
+        if (a is Horse d)
+        {
+            Animal horse = (Animal)a;
+
+            a.Run();
+        }
+        else
+        {
+            //（失敗時の挙動）をコメントでまとめる。
+            Console.WriteLine("パターンマッチングで失敗しました。");
+        }
+
+        Console.WriteLine();
+    }
     static void question7()
     {
         Console.WriteLine("2.8.7.問題8-7のコンソール出力");
@@ -230,7 +277,6 @@ class Cat : Animal, IPlayable
             animals.Add(cat);
             animals.Add(bird);
         }
-        ;
         foreach (IPlayable animal in animals)
         {
             animal.Play();
@@ -241,8 +287,33 @@ class Cat : Animal, IPlayable
     {
         Console.WriteLine("2.8.9.問題8-9のコンソール出力");
         List<Animal> animals = new List<Animal>();
-        Console.WriteLine("動物の種類、名前、年齢を入力してください");
-        Console.WriteLine("(例：Horse ポチ 3 / Cat ミケ 2 / Bird ピー 1)");
+        int horseCount = 0;
+        int catCount = 0;
+        int birdCount = 0;
+        Console.WriteLine($"何匹入力しますか?");
+        int count = int.Parse(Console.ReadLine());
+        for (int i = 0; i < count; i++)
+        {
+            Console.WriteLine($"{i + 1}匹目の動物の種類、名前、年齢を半角スペース区切りで入力してください");
+            Console.WriteLine("(例：Horse ポチ 3 / Cat ミケ 2 / Bird ピー 1)");
+            string input = Console.ReadLine();
+            string[] values = input.Split(" ");
+            switch (values[0])
+            {
+                case "Horse": animals.Add(new Horse(values[1], int.Parse(values[2]))); horseCount++; break;
+                case "Cat": animals.Add(new Cat(values[1], int.Parse(values[2]))); catCount++; break;
+                case "Bird": animals.Add(new Bird(values[1], int.Parse(values[2]))); birdCount++; break;
+            }
+        }
+        foreach (Animal animal in animals)
+        {
+            animal.Speak();
+            animal.ShowProfile();
+            if (animal is IPlayable a){ a.Play(); }
+            else{ continue; }
+
+        }
+        Console.WriteLine($"集計-Horse:{horseCount}頭,Cat:{catCount}頭,Bird:{birdCount}羽");
 
         Console.WriteLine();
     }

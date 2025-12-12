@@ -59,7 +59,7 @@ namespace ConsoleApp5
             Console.WriteLine("0 除算を行います。");
             try
             {
-                Console.WriteLine(1/0);
+                Console.WriteLine(1 / 0);
             }
             catch (DivideByZeroException)
             {
@@ -129,8 +129,6 @@ namespace ConsoleApp5
             {
                 total += i;
             }
-            //for 文の途中に ブレークポイント を設定し、デバッグ実行で i と total の値をウォッチする。
-            //ループが進むごとに total が増えていく様子を確認しなさい。
 
             Console.WriteLine("合計は " + total);
             Console.WriteLine();

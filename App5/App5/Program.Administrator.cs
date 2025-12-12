@@ -13,7 +13,11 @@ public partial class Program
         {
             Console.WriteLine("管理者モードです。");
             Console.WriteLine("1:在庫補充,2:釣銭補充,3:売上確認,4:終了");
-            int mode = int.Parse(Console.ReadLine());
+
+            int mode = 0;
+            try{ mode = int.Parse(Console.ReadLine()); }
+            catch { Console.WriteLine();Administrator( salesPath, sales, list, coinCase); }
+
             switch (mode)
             {
                 case 1:
@@ -26,10 +30,12 @@ public partial class Program
                     Administrator(salesPath, sales, list, coinCase); break;
                 case 3:
                     Console.WriteLine($"売上:{sales}円");
+                    Console.WriteLine("再度管理者パスワードを入力してください。");
                     Administrator(salesPath, sales, list, coinCase); break;
                 case 4: Console.WriteLine("一般モードに戻ります。"); Main(); break;
                 default: Console.WriteLine("入力が不正です。"); break;
             }
+
             static void ProductReplenishment(List<Item> list)
             {
                 Console.WriteLine("在庫補充です。補充したい商品のIDを入力してください。");
@@ -42,6 +48,7 @@ public partial class Program
                 Console.WriteLine($"{selectItem.Name}を何本補充しますか?");
                 selectItem.Count += int.Parse(Console.ReadLine());
             }
+
             static void ReplenishChange(List<CoinCase> coinCase)
             {
                 Console.WriteLine("釣銭補充です。補充したい金種を入力してください。");

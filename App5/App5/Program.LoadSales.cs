@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading.Channels;
 namespace VendingMachine;
-
 public partial class Program
 {
     static int LoadSales(string salesPath)
@@ -60,8 +59,8 @@ public partial class Program
             if (!File.Exists(salesPath))
             {
                 using (FileStream fs = File.Create($"{salesPath}"));
-                using (FileStream fs = File.Create($"{itemPath}")) ;
-                using (FileStream fs = File.Create($"{changePath}")) ;
+                using (FileStream fs = File.Create($"{itemPath}"));
+                using (FileStream fs = File.Create($"{changePath}"));
             }
         }
         catch (Exception e)
